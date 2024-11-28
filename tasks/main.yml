@@ -1,0 +1,25 @@
+---
+# tasks file for httpd
+  - name: Install apache webserver
+    ansible.builtin.dnf:
+      name: httpd
+      state: latest
+
+  - name: start the service if it is not started
+    ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: copy the index.html into webserver
+    ansible.builtin.copy:
+      src: index.html
+      dest: /var/www/html/
+
+  - name: changing the port number
+    ansible.builtin.template:
+      src: httpd.conf.j2
+      dest: /etc/httpd/conf/httpd.conf
+    vars:
+      port: 40
+    notify: Restart httpd
