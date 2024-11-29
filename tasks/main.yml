@@ -2,14 +2,18 @@
 # tasks file for httpd
   - name: Install apache webserver
     ansible.builtin.dnf:
-      name: httpd
-      state: latest
+      name: "{{ item }}"
+      state: present
+    with_items:
+      - "{{ package }}"
 
   - name: start the service if it is not started
     ansible.builtin.service:
-      name: httpd
+      name: "{{ item }}"
       state: started
       enabled: yes
+    with_items:
+      - "{{ package }}"
 
   - name: copy the index.html into webserver
     ansible.builtin.copy:
@@ -20,6 +24,4 @@
     ansible.builtin.template:
       src: httpd.conf.j2
       dest: /etc/httpd/conf/httpd.conf
-    vars:
-      port: 40
     notify: Restart httpd
