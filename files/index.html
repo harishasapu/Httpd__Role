@@ -3,188 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Prime Clone</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DevSecOps Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Global Styling */
-        * {
+        body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background: #f0f4f8;
+            color: #333;
         }
-        body {
-            font-family: 'Arial', sans-serif;
-            background: #0f171e;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Header */
         header {
-            background: url('https://image.tmdb.org/t/p/original/pXVIAqAoGJKVt0bExIvFWTaKX7u.jpg') no-repeat center center/cover;
-            height: 100vh;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background-color: #1e2a47;
+            color: #fff;
             text-align: center;
-        }
-        header::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1;
+            padding: 50px 20px;
+            border-bottom: 5px solid #FFD700;
         }
         header h1 {
-            font-size: 4rem;
-            z-index: 2;
+            margin: 0;
+            font-size: 3rem;
         }
         header p {
-            font-size: 1.5rem;
-            margin-top: 20px;
-            z-index: 2;
+            font-size: 1.2rem;
         }
-        header button {
-            padding: 15px 30px;
-            font-size: 1rem;
-            margin-top: 30px;
-            color: #fff;
-            background: #00a8e1;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-            z-index: 2;
+        .container {
+            width: 90%;
+            margin: 0 auto;
         }
-        header button:hover {
-            background: #007799;
+        .section {
+            margin-top: 50px;
         }
-
-        /* Navigation Bar */
-        nav {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            z-index: 10;
-        }
-        nav img {
-            height: 40px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1rem;
-            margin-left: 20px;
-        }
-        nav a:hover {
-            color: #00a8e1;
-        }
-
-        /* Main Content */
-        main {
-            padding: 50px 20px;
-            background: #0f171e;
-        }
-        main h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .row {
-            display: flex;
-            overflow-x: auto;
-            padding-bottom: 20px;
-        }
-        .row img {
-            width: 200px;
-            height: 300px;
-            margin-right: 10px;
-            border-radius: 5px;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        .row img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            color: #666;
-            padding: 20px;
+        .section h2 {
+            font-size: 2rem;
+            color: #3A6F7D;
             text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
         }
-        footer a {
-            color: #666;
+        .skills-list, .projects-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-item, .project-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .skill-item:hover, .project-item:hover {
+            transform: scale(1.05);
+        }
+        .skill-item h3, .project-item h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            color: #1e2a47;
+        }
+        .project-item p {
+            color: #555;
+            font-size: 1rem;
+        }
+        footer {
+            background-color: #1e2a47;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .social-icons a {
+            margin: 0 15px;
+            color: #fff;
+            font-size: 1.8rem;
             text-decoration: none;
-            margin: 0 10px;
-            font-size: 0.9rem;
+            transition: color 0.3s;
         }
-        footer a:hover {
-            color: #00a8e1;
+        .social-icons a:hover {
+            color: #FFD700;
         }
-
-        /* Scrollbar for Rows */
-        .row::-webkit-scrollbar {
-            height: 8px;
+        .contact-info {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-top: 20px;
         }
-        .row::-webkit-scrollbar-thumb {
-            background: #00a8e1;
-            border-radius: 10px;
+        .contact-info a {
+            color: #FFD700;
+            text-decoration: none;
         }
-        .row::-webkit-scrollbar-track {
-            background: #0f171e;
+        .contact-info a:hover {
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Amazon_Prime_Video_logo.svg" alt="Prime Video Logo">
-            <div>
-                <a href="#">Sign In</a>
-            </div>
-        </nav>
-        <div>
-            <h1>Watch the Latest Movies and TV Shows</h1>
-            <p>Included with your Prime membership. Start your free trial today.</p>
-            <button>Get Started</button>
+        <div class="container">
+            <h1>DevSecOps Portfolio</h1>
+            <p>Bringing Security into DevOps</p>
         </div>
     </header>
 
-    <main>
-        <h2>Trending on Prime Video</h2>
-        <div class="row">
-            <img src="https://image.tmdb.org/t/p/w200/zqkmTXzjkAgXmEWLRsY4UpTWCeo.jpg" alt="Wheel of Time">
-            <img src="https://image.tmdb.org/t/p/w200/4sV3IvQJik8qF5pGyMqfubR0D8F.jpg" alt="Gen V">
-            <img src="https://image.tmdb.org/t/p/w200/7N0zZ4oR7TswTTB20VeBl4IkcAy.jpg" alt="The Boys">
-            <img src="https://image.tmdb.org/t/p/w200/2cYbXPDb30YkYbJ1kUR1E1T0hP5.jpg" alt="Reacher">
-            <img src="https://image.tmdb.org/t/p/w200/n9X2DKItL3V0yq1q1jrk8z5UAki.jpg" alt="Jack Ryan">
+    <div class="container">
+        <!-- About Me Section -->
+        <div class="section">
+            <h2>About Me</h2>
+            <p>Hello! I'm a DevSecOps engineer with a strong background in automation, security integration, and continuous delivery pipelines. I specialize in creating secure, scalable, and efficient DevOps workflows for organizations, integrating security at every stage of the software development lifecycle.</p>
         </div>
 
-        <h2>Top Movies</h2>
-        <div class="row">
-            <img src="https://image.tmdb.org/t/p/w200/5wDBVictj4wUYZ31gR5WzCM9dLD.jpg" alt="Sound of Freedom">
-            <img src="https://image.tmdb.org/t/p/w200/mbYk3UepKv6YJ1tc3NA9yLTLTdf.jpg" alt="Everything Everywhere All at Once">
-            <img src="https://image.tmdb.org/t/p/w200/lBYyXyZlUCQxyZEd88M7BeET3iC.jpg" alt="The Tomorrow War">
-            <img src="https://image.tmdb.org/t/p/w200/sX9fSvn5VqwxO9TS0LZ3me0BO9j.jpg" alt="Cinderella">
-            <img src="https://image.tmdb.org/t/p/w200/vuVldmhnLTrMgyKU8zN8zx9aAKf.jpg" alt="A Quiet Place Part II">
+        <!-- Skills Section -->
+        <div class="section">
+            <h2>DevOps & Security Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item" style="background-color: #FF5733;">
+                    <h3>CI/CD</h3>
+                    <p>Jenkins, GitLab CI, CircleCI, TravisCI</p>
+                </div>
+                <div class="skill-item" style="background-color: #FF7F50;">
+                    <h3>Containerization & Orchestration</h3>
+                    <p>Docker, Kubernetes, OpenShift</p>
+                </div>
+                <div class="skill-item" style="background-color: #FFD700;">
+                    <h3>Configuration Management</h3>
+                    <p>Ansible, Chef, Puppet</p>
+                </div>
+                <div class="skill-item" style="background-color: #00BFFF;">
+                    <h3>Cloud Platforms</h3>
+                    <p>AWS, Azure, GCP</p>
+                </div>
+                <div class="skill-item" style="background-color: #32CD32;">
+                    <h3>Version Control</h3>
+                    <p>Git, GitHub, GitLab, Bitbucket</p>
+                </div>
+                <div class="skill-item" style="background-color: #8A2BE2;">
+                    <h3>Infrastructure as Code</h3>
+                    <p>Terraform, CloudFormation</p>
+                </div>
+                <div class="skill-item" style="background-color: #DC143C;">
+                    <h3>Security Tools</h3>
+                    <p>OWASP ZAP, Snyk, Trivy, Aqua Security</p>
+                </div>
+                <div class="skill-item" style="background-color: #FF1493;">
+                    <h3>Monitoring & Logging</h3>
+                    <p>Prometheus, Grafana, ELK Stack</p>
+                </div>
+            </div>
         </div>
-    </main>
 
+        <!-- Projects Section -->
+        <div class="section">
+            <h2>Projects</h2>
+            <div class="projects-list">
+                <div class="project-item" style="background-color: #FFD700;">
+                    <h3>Secure DevOps Pipeline</h3>
+                    <p>Designed and implemented a secure CI/CD pipeline integrating security testing tools like Snyk and Trivy to ensure vulnerability scanning at each stage of deployment.</p>
+                </div>
+                <div class="project-item" style="background-color: #00BFFF;">
+                    <h3>Containerized Application Deployment</h3>
+                    <p>Created and deployed a containerized application on Kubernetes, ensuring best practices in security, scaling, and fault tolerance.</p>
+                </div>
+                <div class="project-item" style="background-color: #FF5733;">
+                    <h3>Automated Infrastructure with Terraform</h3>
+                    <p>Developed and deployed infrastructure-as-code using Terraform to automate the provisioning of secure cloud resources on AWS.</p>
+                </div>
+                <div class="project-item" style="background-color: #32CD32;">
+                    <h3>Continuous Monitoring and Logging</h3>
+                    <p>Set up continuous monitoring and alerting with Prometheus, Grafana, and ELK stack for real-time insights and proactive issue resolution.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section">
+            <h2>Contact Me</h2>
+            <p>If you'd like to discuss how we can collaborate or want to learn more about my work, feel free to get in touch!</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:devsecops@example.com">devsecops@example.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+                <p>GitHub: <a href="https://github.com/yourprofile" target="_blank">github.com/yourprofile</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Prime Video Clone. Built for educational purposes.</p>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="#">Help</a>
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/yourprofile" target="_blank">GitHub</a> |
+            <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a>
+        </div>
+        <p>&copy; 2024 DevSecOps Portfolio | Designed by [Your Name]</p>
     </footer>
 </body>
 </html>
-
