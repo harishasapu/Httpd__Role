@@ -2,6 +2,9 @@
 # handlers file for httpd
 - name: Restart httpd
   ansible.builtin.service:
-    name: httpd
+    name: "{{ item }}"
     state: restarted
+  with_items:
+    - "{{ package }}"
+
 
